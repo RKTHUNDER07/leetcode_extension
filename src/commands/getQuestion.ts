@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import { urlParse } from '../parsers/urlParser';
 import { fetchQuestion } from '../services/leetcodeService';
+import { fileGenerator } from '../generators/filegenerator';
 
 
 export async function getQuestionCommand() {
@@ -19,4 +20,9 @@ export async function getQuestionCommand() {
     const question = await fetchQuestion(questionName);
 
     vscode.window.showInformationMessage(question.difficulty);
+    
+    
+    const content = `// ${question.title}\n\n${question.id} \n\n// Sample Test Case:\n${question.testCases} \n\n// Difficulty: ${question.difficulty} \n\n// MetaData: ${question.functionName}`;
+
+    await fileGenerator(questionName, content);
 }

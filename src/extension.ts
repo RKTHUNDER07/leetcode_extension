@@ -10,6 +10,7 @@ export function activate(context: vscode.ExtensionContext) {
 	
 	const disposable = vscode.commands.registerCommand('leetcodeextension.getQuestion', getQuestionCommand);
 
+	
 	context.subscriptions.push(disposable);
 }
 
