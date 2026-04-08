@@ -30,21 +30,12 @@ export async function fetchQuestion(slug: string) {
         id: Number(q.questionId),
         title: q.title,
         difficulty: q.difficulty,
-
-        isClassProblem: true,
-
         functionName: meta.name,
         returnType: meta.return.type,
-
         parameters: meta.params?.map((p: any) => ({
             name: p.name,
             type: p.type
         })),
-
-        className: "Solution",
-
-        methods: [], // later
-
         testCases: q.sampleTestCase
     };
 
