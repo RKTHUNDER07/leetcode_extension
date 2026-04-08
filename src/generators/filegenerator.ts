@@ -19,7 +19,7 @@ export async function fileGenerator(questionName: string,content: string) {
 
         const encoder = new TextEncoder();
 
-        await vscode.workspace.fs.writeFile(fileUri, encoder.encode(`// ${questionName}.cpp \n\n${content}`));
+        await vscode.workspace.fs.writeFile(fileUri, encoder.encode(`${content}`));
 
         const doc = await vscode.workspace.openTextDocument(fileUri);
         await vscode.window.showTextDocument(doc);
